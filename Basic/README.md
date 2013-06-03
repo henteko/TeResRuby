@@ -14,7 +14,7 @@ C言語 -> Rubyの順番で説明したいね
 
 ###制御構文的なの  
 
-```
+```c
 //C言語
 int flag = 1;
 if(flag) {
@@ -26,7 +26,7 @@ if(flag) {
 }
 ```
 
-```
+```ruby
 #Ruby
 flag = true
 if flag
@@ -40,14 +40,14 @@ end
 
 ###繰り返し構文
 
-```
+```c
 //C言語
 for(int i=0; i < 10; i++) {
   printf("%d\n", i);
 }
 ```
 
-```
+```ruby
 #Ruby
 num = 10
 num.times do |i|
@@ -55,7 +55,7 @@ num.times do |i|
 end
 ```
 
-```
+```ruby
 #Ruby2
 array = [0,1,2,3,4,5,6,7,8,9]
 array.each do |i|
@@ -66,7 +66,7 @@ end
 ##クラスの書き方
 C言語ではクラスとか無いね  
 
-```
+```ruby
 #Ruby
 class Hoge #=> クラス定義
   def print(str) #=> メソッド定義(C言語での関数)
@@ -80,30 +80,30 @@ hoge.print("hello") #=> printっていうメソッドを使うよ
 
 ##ライブラリを使ってみよう
 Rubyには便利なライブラリがいっぱいあるよ  
-http://rubygems.comにいっぱいあるよ  
+http://rubygems.com にいっぱいあるよ  
 
 ###インストール方法
 
-```
+```sh
 #ターミナルで以下実行
 $ gem install ライブラリのパッケージ名
 ```
 
 ###使ってみよう
 
-```
+```ruby
 # Rubyのソースコードの一番上にこれを書く
 require 'ライブラリの名前' #=> C言語のincludeだね
 ```
 
 ###実際にやってみよう(電通大の休講情報取得)
 
-```
+```sh
 # 以下をターミナルで実行
 $ gem install uec_express_api
 ```
 
-```
+```ruby
 #Ruby
 require 'uec_express_api'
 require 'json'
