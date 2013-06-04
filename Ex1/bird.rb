@@ -19,7 +19,7 @@ class Bird
   end
 
   def follow(user)
-    return false unless user.class == Bird
+    raise 'Not Bird instance' unless user.class == Bird
     @flowers.push(user)
   end
 
