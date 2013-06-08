@@ -51,6 +51,7 @@ for(int i=0; i < 10; i++) {
 #Ruby
 num = 10
 num.times do |i|
+  #0 ~ 9まで表示
   puts i
 end
 ```
@@ -63,60 +64,48 @@ array.each do |i|
 end
 ```
 
-##クラスの書き方
-C言語ではクラスとか無いね  
+```ruby
+#Ruby3
+(0..9).each do |i|
+  puts i
+end
+```
+
+##関数の書き方
+
+```c
+int hoge(int num) {
+  printf("%d\n", num);
+}
+
+int main() {
+  //10が表示される
+  hoge(10);
+}
+```
 
 ```ruby
-#Ruby
-class Hoge #=> クラス定義
-  def print(str) #=> メソッド定義(C言語での関数)
-    puts str
-  end
+def hoge(num)
+  puts num
 end
 
-hoge = Hoge.new #=> クラスを使用するよ
-hoge.print("hello") #=> printっていうメソッドを使うよ
+hoge(10) #=> 10が表示される
 ```
 
-##ライブラリを使ってみよう
-Rubyには便利なライブラリがいっぱいあるよ  
-http://rubygems.com にいっぱいあるよ  
+##ちょっと演習
+###与えた値までのΣ計算をする関数を作ってみよう
+Cだとこんなん  
 
-###インストール方法
+```c
+#include<stdio.h>
 
-```sh
-#ターミナルで以下実行
-$ gem install ライブラリのパッケージ名
+int sum(num) {
+  if(num == 1) return num;
+  return num + sum(num - 1);
+}
+
+int main() {
+  printf("%d\n", sum(10));
+  return 0;
+}
 ```
-
-###使ってみよう
-
-```ruby
-# Rubyのソースコードの一番上にこれを書く
-require 'ライブラリの名前' #=> C言語のincludeだね
-```
-
-###実際にやってみよう(電通大の休講情報取得)
-
-```sh
-# 以下をターミナルで実行
-$ gem install uec_express_api
-```
-
-```ruby
-#Ruby
-require 'uec_express_api'
-require 'json'
-
-uec_express = UECExpressApi.new()
-uec_express.to_s
-pp uec_express.to_hash
-```
-
-これで電通大の休講情報が取得出来た！！
-
-###後は思い思いの休講情報にしてみよう！！
-例  
-
-* 自分が関係してる授業のみ表示してみるとか
-* 休みにしたい授業を毎回表示するとか
